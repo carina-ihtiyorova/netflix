@@ -3,7 +3,7 @@ import instance from "./axios";
 import { useState, useEffect } from "react";
 import "./Row.css";
 const baseURL = "https://image.tmdb.org/t/p/original/";
-function Row({ title, fetchUrl }) {
+function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -22,8 +22,10 @@ function Row({ title, fetchUrl }) {
           <>
             <img
               key={movie.id}
-              className="row__poster"
-              src={`${baseURL}${movie.poster_path}`}
+              className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+              src={`${baseURL}${
+                isLargeRow ? movie.poster_path : movie.backdrop_path
+              }`}
               alt={movie.name}
             />
           </>

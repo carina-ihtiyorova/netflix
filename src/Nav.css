@@ -16,11 +16,13 @@
 .nav__logo {
   position: fixed;
   left: 20px;
-
+  cursor: pointer;
   width: 80px;
   object-fit: contain;
 }
 .nav__avatar {
+  cursor: pointer;
+
   position: fixed;
   right: 20px;
   width: 30px;
